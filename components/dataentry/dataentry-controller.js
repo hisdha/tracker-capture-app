@@ -1026,14 +1026,16 @@ trackerCapture.controller('DataEntryController',
                         
                         dhis2Event.statusColor = EventUtils.getEventStatusColor(dhis2Event);
                         dhis2Event = EventUtils.processEvent(dhis2Event, eventStage, $scope.optionSets, $scope.prStDes);
-                        $scope.eventsByStage[dhis2Event.programStage].push(dhis2Event);
+                        //$scope.eventsByStage[dhis2Event.programStage].push(dhis2Event);
+                        $scope.eventsByStage[dhis2Event.programStage] = [...new Map([...$scope.eventsByStage[dhis2Event.programStage],...[dhis2Event]].map((item)=>[item['event'], item])).values()];
                         
                         if ($scope.currentStage && $scope.currentStage.id === dhis2Event.programStage) {
                             $scope.currentEvent = dhis2Event;
                         }
                     }
                     
-                    $scope.allEventsSorted.push(dhis2Event);
+                    //$scope.allEventsSorted.push(dhis2Event);
+                    $scope.allEventsSorted = [...new Set($scope.allEventsSorted.map((item)=>item)),...[dhis2Event]];
                 }
             });
             
@@ -1049,7 +1051,7 @@ trackerCapture.controller('DataEntryController',
             $scope.eventsLoaded = true;
         }
     };
-
+    
     $scope.enableRescheduling = function () {
         $scope.schedulingEnabled = !$scope.schedulingEnabled;
     };
