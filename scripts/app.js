@@ -80,7 +80,6 @@ angular.module('trackerCapture')
 
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
-
     $routeProvider.when('/', {
         templateUrl:'components/home/home.html',
         controller: 'HomeController',
