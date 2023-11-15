@@ -1,3 +1,45 @@
+## [31.13.34](https://github.com/dhis2/tracker-capture-app/compare/v31.13.33...v31.13.34) (2023-11-08)
+
+
+### Bug Fixes
+
+* [DHIS2-14190] make sure option is non-`null` ([#1885](https://github.com/dhis2/tracker-capture-app/issues/1885)) ([aca8bfb](https://github.com/dhis2/tracker-capture-app/commit/aca8bfbda4196789f5148a8c0baab75b4b3683e7))
+
+## [31.13.33](https://github.com/dhis2/tracker-capture-app/compare/v31.13.32...v31.13.33) (2023-11-05)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([5a5355b](https://github.com/dhis2/tracker-capture-app/commit/5a5355b87802d0e1b625f9e456ea243c9e3388f3))
+
+## [31.13.32](https://github.com/dhis2/tracker-capture-app/compare/v31.13.31...v31.13.32) (2023-10-22)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([39d38f8](https://github.com/dhis2/tracker-capture-app/commit/39d38f87809c8bf4f905c6aa08cdc88a45d6500d))
+
+## [31.13.31](https://github.com/dhis2/tracker-capture-app/compare/v31.13.30...v31.13.31) (2023-09-15)
+
+
+### Bug Fixes
+
+* [DHIS2-15844] allow multiple occurences of d2:hasValue in a single expression ([#1863](https://github.com/dhis2/tracker-capture-app/issues/1863)) ([ac8bb95](https://github.com/dhis2/tracker-capture-app/commit/ac8bb95e035d0aeec9446b03cde835ceb992acb7))
+
+## [31.13.30](https://github.com/dhis2/tracker-capture-app/compare/v31.13.29...v31.13.30) (2023-09-14)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([902a86a](https://github.com/dhis2/tracker-capture-app/commit/902a86a1f15528d9858831080493f3abe471a217))
+
+## [31.13.29](https://github.com/dhis2/tracker-capture-app/compare/v31.13.28...v31.13.29) (2023-09-08)
+
+
+### Bug Fixes
+
+* [DHIS2-15102] assign data elements sequentially ([#1852](https://github.com/dhis2/tracker-capture-app/issues/1852)) ([e7194d2](https://github.com/dhis2/tracker-capture-app/commit/e7194d2a0b9611985e97ee3c069818a94c7a012a))
+
 ## [31.13.28](https://github.com/dhis2/tracker-capture-app/compare/v31.13.27...v31.13.28) (2023-07-03)
 
 
