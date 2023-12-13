@@ -1,4 +1,5 @@
 /* global angular, trackerCapture */
+import { evaluate } from 'mathjs';
 
 var trackerCapture = angular.module('trackerCapture');
 trackerCapture.controller('DataEntryController',
@@ -76,6 +77,13 @@ trackerCapture.controller('DataEntryController',
     $scope.orgUnitNames = {};
     $scope.originalDate = '';
 
+    // Custom Datastore 
+    $scope.stockMetadata = {
+        dataSet:'',
+        dataElements:[] 
+    };
+    $scope.stockValues = {};
+
     //Placeholder till proper settings for time is implemented. Currently hard coded to 24h format.
     $scope.timeFormat = '24h';
     
@@ -95,6 +103,7 @@ trackerCapture.controller('DataEntryController',
     
     $scope.attributesById = CurrentSelection.getAttributesById();
     $scope.optionGroupsById = CurrentSelection.getOptionGroupsById();
+
 
     var dashBoardLayoutPromise = DashboardLayoutService.get().then(function(response) {
         $scope.dashBoardLayout = response;
@@ -957,6 +966,23 @@ trackerCapture.controller('DataEntryController',
                 });    	        
     	    }
         });
+    DashboardLayoutService.getStockMetadataList().then(function(response){
+        if(!response || response === '') {
+            $scope.stockMetadata = {
+                dataSet:'',
+                dataElements:[]
+            };
+        } else {
+            $scope.stockMetadata = response;  
+            DashboardLayoutService.getStockList($scope.stockMetadata.dataSet,$scope.selectedOrgUnit.id).then(function(response){
+                if(!response || response === '') {
+                    $scope.stockValues = {};
+                } else {
+                    $scope.stockValues = response;                
+                }
+            });              
+        }
+    });
 
     $scope.openEventExternal = function(event){
         if($scope.useMainMenu){
@@ -2401,10 +2427,35 @@ trackerCapture.controller('DataEntryController',
         }
     };
 
+    $scope.getStockStatus = function(de, value){
+        const values = {};
+        if(value && value.dataValues){
+            angular.forEach(value.dataValues,(d)=>{
+                values[`${d.dataElement}_${d.categoryOptionCombo}`] = parseFloat(d.value) || 0;
+            })
+        }
+        const leftSide = evaluate(`${de.indicator} <= ${(parseFloat(de.value) || 0)}`,values);
+        return leftSide;
+    }
+    $scope.isStockedOut = function(id){
+        return $scope.stockMetadata.dataElements.some((de) => {
+            if(de.attribute === id){
+                return $scope.getStockStatus(de, $scope.stockValues);
+            }
+            return false;
+        })
+    }
     $scope.dataElementEditable = function(prStDe){
         if($scope.eventEditable()){
-            if($scope.assignedFields[$scope.currentEvent.event][prStDe.dataElement.id]) return false;
-            return true;
+            if(prStDe.dataElement && $scope.isStockedOut(prStDe.dataElement.id)){
+                return false;
+            }
+            else{
+                if($scope.assignedFields[$scope.currentEvent.event][prStDe.dataElement.id]) {
+                    return false;
+                }
+                return true;
+            }
         }
         return false;
     }

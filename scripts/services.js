@@ -144,6 +144,24 @@ var trackerCaptureServices = angular.module('trackerCaptureServices', ['ngResour
             });
             return promise;
         },
+        getStockMetadataList: function() {
+            var promise = $http.get(  DHIS2URL + '/dataStore/tracker-aggregate-predictor/metadata' ).then(function(response){
+                return response.data;
+            }, function(){
+                return null;
+            });
+            return promise;
+        },
+        getStockList: function(dataSet,orgUnit) {
+            const today= new Date();
+            const period = `${today.getFullYear().toString()}${today.getMonth()===0?(today.getMonth()+12).toString():today.getMonth().toString()}`;
+            var promise = $http.get(  `${DHIS2URL}/dataValueSets?period=${period}&dataSet=${dataSet}&orgUnit=${orgUnit}` ).then(function(response){
+                return response.data;
+            }, function(){
+                return null;
+            });
+            return promise;
+        },
         getLockedList: function() {
             var promise = $http.get(  DHIS2URL + '/dataStore/tracker-capture/keyDefaultLayoutLocked' ).then(function(response){
                 return response.data;
