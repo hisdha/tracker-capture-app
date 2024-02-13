@@ -315,7 +315,7 @@ trackerCapture.controller('SearchController',function(
                         if(res.status === "UNIQUE"){
                             $scope.isUnique = true;
                             $scope.uniqueTei = $scope.gridData.rows.own.length > 0 ? $scope.gridData.rows.own[0] : $scope.gridData.rows.other[0];
-                            if(!internalService.base.orgUnitsById[$scope.uniqueTei.orgUnit]){
+                            if(internalService.base && internalService.base.orgUnitsById && !internalService.base.orgUnitsById[$scope.uniqueTei.orgUnit]){
                                 $scope.orgUnitLoading = true;
                                 OrgUnitFactory.get($scope.uniqueTei.orgUnit).then(function(ou){
                                     internalService.base.orgUnitsById[ou.id] = ou;
