@@ -1,3 +1,45 @@
+## [31.13.41](https://github.com/dhis2/tracker-capture-app/compare/v31.13.40...v31.13.41) (2024-05-19)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([4472f39](https://github.com/dhis2/tracker-capture-app/commit/4472f392c5fedb40d932458e0224fb55b0343dd3))
+
+## [31.13.40](https://github.com/dhis2/tracker-capture-app/compare/v31.13.39...v31.13.40) (2024-04-28)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([8377894](https://github.com/dhis2/tracker-capture-app/commit/837789478090de039c304d0ec5a02eba0f107e4c))
+
+## [31.13.39](https://github.com/dhis2/tracker-capture-app/compare/v31.13.38...v31.13.39) (2024-04-24)
+
+
+### Bug Fixes
+
+* [BETA-157] custom working list query ([#1915](https://github.com/dhis2/tracker-capture-app/issues/1915)) ([0ee8a57](https://github.com/dhis2/tracker-capture-app/commit/0ee8a57c528cbe028242be811b8be1b57ae37b98))
+
+## [31.13.38](https://github.com/dhis2/tracker-capture-app/compare/v31.13.37...v31.13.38) (2024-02-28)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([40d607a](https://github.com/dhis2/tracker-capture-app/commit/40d607ac03d4fadc6748f048be1c41242a7527f3))
+
+## [31.13.37](https://github.com/dhis2/tracker-capture-app/compare/v31.13.36...v31.13.37) (2024-02-21)
+
+
+### Bug Fixes
+
+* [DHIS2-16877] filter duplicate widgets from `keyTrackerDashboardLayout` response ([03d4aa0](https://github.com/dhis2/tracker-capture-app/commit/03d4aa0187478daef908a242bf7df58d880cbebe))
+
+## [31.13.36](https://github.com/dhis2/tracker-capture-app/compare/v31.13.35...v31.13.36) (2023-12-24)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([ed454f2](https://github.com/dhis2/tracker-capture-app/commit/ed454f24ddd19d377d03531861b02df91bd493ff))
+
 ## [31.13.35](https://github.com/dhis2/tracker-capture-app/compare/v31.13.34...v31.13.35) (2023-11-24)
 
 
